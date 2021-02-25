@@ -4,9 +4,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "sendgrid")
-public class SendGridConfigs {
+@ConfigurationProperties(prefix = "mailgun")
+public class MailGunConfigs {
     private String apiKey;
+
+    private String domainName;
 
     public String getApiKey() {
         return apiKey;
@@ -14,5 +16,13 @@ public class SendGridConfigs {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getDomainName() {
+        return domainName;
+    }
+
+    public void setDomainName(String domainName) {
+        this.domainName = domainName;
     }
 }
