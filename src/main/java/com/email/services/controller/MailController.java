@@ -26,7 +26,7 @@ public class MailController {
     @PostMapping(value="/sendGrid")
     public Response sendEmailBySendGrid(@RequestBody User user) throws IOException ,UnirestException{
         Response response = sendGridService.sendSendGridMail(user);
-        if(response.getStatusCode()!=202 ||response.getStatusCode()!=200){
+        if(response.getStatusCode()==500){
             sendEmailBySendMailGun(user);
         }
         return response;
